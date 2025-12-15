@@ -91,6 +91,7 @@ export default function Profile() {
               toast.info("Abrir formulario de Creación de Perfil");
               // Si aún no implementaste el modal, quita el estado para evitar ESLint no-used-var
               // setIsModalOpen(true);
+              //navigate("/")
             }}
           >
             ➕ Crear Nuevo Perfil
