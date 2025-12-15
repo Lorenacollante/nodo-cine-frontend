@@ -100,17 +100,26 @@ export const AuthProvider = ({ children }) => {
   };
 
   // =====================
-  // CARGAR SESIÓN
+  // CARGAR  aqui errorverrr
   // =====================
   useEffect(() => {
-    const token = localStorage.getItem(STORAGE_KEY);
+    // Token de ejemplo real que obtuviste, decodificado para simular el usuario
+    const SIMULATION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5M2U1YTI4Y2EwMTkzOTdiYmExMzQxZSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc2NTc3ODk5NSwiZXhwIjoxNzY1ODY1Mzk1fQ.9Njl-iYlCJF8fbQC8U52quCpZQ28r3UGGnfBOdrJmSs";
+    const SIMULATION_USER = decodeJWT(SIMULATION_TOKEN); // Usamos la función decodeJWT ya definida
+
+    if (SIMULATION_USER) {
+        // Establecer el usuario y el token como si se hubiera logueado
+        setUser(SIMULATION_USER);
+        axiosClient.defaults.headers.common.Authorization = `Bearer ${SIMULATION_TOKEN}`;
+    }
+    /*const token = localStorage.getItem(STORAGE_KEY);
 
     if (token && isTokenValid(token)) {
       setUser(decodeJWT(token));
       axiosClient.defaults.headers.common.Authorization = `Bearer ${token}`;
     } else {
       localStorage.removeItem(STORAGE_KEY);
-    }
+    }*/
 
     setLoading(false);
   }, []);
