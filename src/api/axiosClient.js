@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 const BASE_URL =
   import.meta.env.VITE_API_BASE ||
   import.meta.env.VITE_API_URL ||
-  "https://nodo-cine-backend.onrender.com/api";
+  "http://localhost:3000";
 
 const axiosClient = axios.create({
   baseURL: BASE_URL,
